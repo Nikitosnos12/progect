@@ -12,6 +12,7 @@ type ViewData struct {
 	Phone   string
 }
 
+// local host
 func main() {
 	http.HandleFunc("/", handler)
 	http.ListenAndServe(":5434", nil)
