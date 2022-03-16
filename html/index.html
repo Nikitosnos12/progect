@@ -1,10 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Registration</title>
+    <title>{{ .Title}}</title>
 </head>
-<body>
+<body bgcolor="aqua">
 
+<h1 align="center">{{ .Title}}</h1>
+
+<div>
+    <label for="">Name:</label>
+    <input type="text" size=15>
+</div>
+
+<div>
+    <label for="">Surname:</label>
+    <input type="text" size=15>
+</div>
+
+
+<div>
+    <label for="">Phone:</label>
+    <input type="text" value="+380" size=10>
+</div>
+
+
+<style>
+    .center {
+        text-align: center;
+    }
+</style>
+
+<div class="center">
+    <button  style="    padding: 10px;
+    width: 200px;
+    color: blue;
+    background: greenyellow;
+    border-radius: 20px;"><h1>Add Contact</h1></button>
+</div>
 </body>
 </html>

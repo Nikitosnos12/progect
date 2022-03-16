@@ -1,27 +1,29 @@
-package main
+package mainсщ
 
 import (
-	"fmt"
 	"html/template"
 	"net/http"
 )
 
+type ViewData struct {
+	Title   string
+	First   string
+	Surname string
+	Phone   string
+}
+
 func main() {
-	handleFunc()
+	http.HandleFunc("/", handler)
+	http.ListenAndServe(":5434", nil)
 }
 
-func handleFunc() {
-	http.HandleFunc("/", index)
-	http.ListenAndServe(":5623", nil)
-}
-
-func index(w http.ResponseWriter, r *http.Request) {
-	t, err := template.ParseFiles("html/index.html")
-
-	if err != nil {
-		fmt.Fprintf(w, err.Error)
+func handler(w http.ResponseWriter, r *http.Request) {
+	data := ViewData{
+		Title:   "Registration",
+		First:   "Name",
+		Surname: "Surname",
+		Phone:   "Phone",
 	}
-
-	t.ExecuteTemplate(w, "idex", nil)
-
+	tmpl, _ := template.ParseFiles("templates/index.html")
+	tmpl.Execute(w, data)
 }
